@@ -6,6 +6,7 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+
 <style>
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
@@ -17,7 +18,7 @@ body { margin: 0; padding: 0; }
         position: fixed;
         width: 50%;
     }
-    #itinerary {
+    #features {
         width: 50%;
         margin-left: 50%;
         font-family: sans-serif;
@@ -41,14 +42,13 @@ body { margin: 0; padding: 0; }
 </style>
 
 <div id="map"></div>
-<div id="itinerary">
+<div id="features">
     <section id="santa-cruz" class="active">
         <h3>Day 1 - SANTA CRUZ & BALTRA ILANDS</h3>
         <p class="dbd-title">Baltra Island Airport​</p>
         <p>Following your morning arrival at Baltra Airport, you will take a transfer ferry across the Itabaca Channel – a small channel that separates the north shore of Santa Cruz Island from Baltra Island. Afterwards, you will board a private bus that will take you, along with other guests, up into the highlands, where we will all have the opportunity to learn about Santa Cruz’s unique ecosystems and biodiversity. Lunch is served at a local restaurant (Manzanillo Ranch).</p>
         <p class="dbd-title">Highlands (Santa Cruz Island)​​</p>
         <p>After lunch, we will continue by private bus to reach a reserve that is one of the best places in the archipelago to see giant tortoises in their natural habitat. The tortoises are easy to spot lumbering around, eating grass and sometimes even wallowing in the small pools. There are several lava tunnels in the reserve, too. After this, a short, private bus ride will take us down to the town of Puerto Ayora to board Yacht La Pinta.</p>
-        
     </section>
     <section id="chinese-hat">
         <h3>Day 2 - SANTA CRUZ & SOMBRERO CHINO ISLAND</h3>
@@ -56,7 +56,6 @@ body { margin: 0; padding: 0; }
         <p>Following breakfast, a panga ride will take us down to Eden Islet, located off the coast of Santa Cruz Island, where they can observe blue-footed boobies diving into the water, reef sharks and frigates. There’s a chance to snorkel or ride aboard La Pinta’s own glass-bottom boat, weather permitting. The volcanic setting of this area is quite stunning due to its variety of volcanic debris, complete with cinder cones, tuff cones, and semi-eroded lava flows.</p>
         <p class="dbd-title">Sombrero Chino Islet​</p>
         <p>The tiny island of Sombrero Chino gets its name from its appearance, which is reminiscent of a Chinese Hat. This islet, which formed fairly recently, makes for a beautiful visit as one explores the wildlife along its 400-meter long trail, which begins at a crescent-shaped white sand beach. The cove offers excellent swimming and snorkeling opportunities in the company of whitetip reef sharks and Galapagos penguins.</p>
-        
     </section>
     <section id="bartolome">
         <h3>Day 3 - BARTOLOME & SANTIAGO ISLANDS</h3>
@@ -64,7 +63,6 @@ body { margin: 0; padding: 0; }
         <p>On this morning, an iconic and postcard-worthy Galapagos feature awaits: Bartolome Island. We will disembark from our dinghy shuttle boats and begin a steep climb up a wooden staircase where the view from the top makes the trek well worth the effort! Following the walk, we will once again hop aboard the dinghies for a ride around the colossal Pinnacle Rock. After this, there will be time for you guests to enjoy the beach as well as some snorkeling. You can also choose to ride aboard the glass-bottom boat for great views of the underwater world.</p>
         <p class="dbd-title">Sullivan Bay (Santiago Island)​</p>
         <p>After lunch, we will board the dinghy to disembark at Sullivan Bay over on the east coast of Santiago Island. This visitor site comes complete with a white coral-sand beach, which is great for swimming and snorkeling. Additionally, there’s a trail that goes over a lava field that once flowed here less than 100 years ago. This is the perfect place to see and feel the volcanic origin of Galapagos while observing its wildlife.</p>
-        
     </section>
     <section id="genovesa">
         <h3>Day 4 - GENOVESA ISLAND</h3>
@@ -72,86 +70,16 @@ body { margin: 0; padding: 0; }
         <p>In the morning, we will begin our exploration of this island with a casual stroll to observe marine and land birds. There is an optional walk over sharp lava and uneven terrain that rewards us with dramatic views, too. Otherwise, you can simply choose to return to the beach to enjoy swimming and snorkeling at this beautiful, natural harbor. If you are feeling more adventurous, you can opt to snorkel along the cliffs or paddle in sea kayaks.</p>
         <p class="dbd-title">Prince Philip’s Steps​​</p>
         <p>The afternoon starts with a very interesting dinghy ride along the cliffs before we disembark at Prince Philip’s Steps – the start of a steep but short climb up a wooden staircase. Once at the top, the terrain is pretty flat, which allows for a mesmerizing, mile-long walk to the other side of this small island. Along the way, guests will get to check out large colonies of Nazca boobies, frigatebirds and storm petrels as well as the elusive short-eared owl.</p>
-        
     </section>
     <section id="baltra">
         <h3>Day 5 - BALTRA ISLAND</h3>
-        <p class="dbd-title">Baltra Island Airport/p>
+        <p class="dbd-title">Baltra Island Airport</p>
         <p>The journey ends at Baltra Island, where you will take your transfer to the airport to hop on your flight back to the mainland. Baltra’s flat terrain (due to its tectonically uplifted origin) is the reason for why this island was chosen as the location to build an airport back in the 1940’s.</p>
-       
     </section>
-    <!-- Add more sections for other locations -->
 </div>
-<script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZHB1bGxvcXVpbmdhIiwiYSI6ImNsdzk5bzlhZjAxOGYybmx3b25vODRkN3MifQ.aKLJ4TzgVboMz1ndoUOvlw';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/navigation-day-v1',
-        center: [-90.3103, -0.4485], // Center of Galapagos
-        zoom: 9
-    });
 
-    const chapters = {
-
-        'santa-cruz': {
-            bearing: 0,
-            center: [-90.3103, -0.6336], // Santa Cruz coordinates
-            zoom: 12
-        },
-        
-        'chinese-hat': {
-            bearing: 0,
-            center: [-0.369642, -90.583652], // Eden Islet coordinates
-            zoom: 12
-        }
-        ,
-        'bartolome': {
-            bearing: 0,
-            center: [-0.284771, -90.554308], // Eden Islet coordinates
-            zoom: 12
-        },
-        'genovesa': {
-            bearing: 0,
-            center: [0.321928, -89.957280], // Eden Islet coordinates
-            zoom: 12
-        },
-        'baltra': {
-            bearing: 0,
-            center: [-90.3103, -0.4485], // Baltra coordinates
-            zoom: 12
-        }
-        
-        
-        // Add more chapters for other locations
-    };
-
-    let activeChapterName = 'baltra';
-    function setActiveChapter(chapterName) {
-        if (chapterName === activeChapterName) return;
-
-        map.flyTo(chapters[chapterName]);
-
-        document.getElementById(chapterName).classList.add('active');
-        document.getElementById(activeChapterName).classList.remove('active');
-
-        activeChapterName = chapterName;
-    }
-
-    function isElementOnScreen(id) {
-        const element = document.getElementById(id);
-        const bounds = element.getBoundingClientRect();
-        return bounds.top < window.innerHeight && bounds.bottom > 0;
-    }
-
-    window.onscroll = () => {
-        for (const chapterName in chapters) {
-            if (isElementOnScreen(chapterName)) {
-                setActiveChapter(chapterName);
-                break;
-            }
-        }
-    };
-</script>
 
 </body>
+
+<script src="js/mapbox.js" ></script>
 </html>
